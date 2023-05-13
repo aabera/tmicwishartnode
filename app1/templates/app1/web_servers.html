@@ -1,0 +1,342 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+    .list-unstyled li::before {
+        content: "\2022"; /* bullet point character */
+        color: red;
+        margin-right: 0.5rem;
+    }
+    .custom-line {
+        height: 7px;
+        width: 100%;
+    }
+
+    .bg-soft-success {
+        background-color: #bedadf;
+    }
+</style>
+<div>
+    <h1 class="section-heading fw-bold text-center text_darkred">
+        Web Servers and Software
+    </h1>
+</div>
+
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div
+    class="container text-justify m-2 mx-auto"
+    style="background-color: #bedadf"
+>
+    <div class="row p-4">
+        <div class="col-md-9 text-dark">
+            <p>
+                MetaboAnalyst is a comprehensive, web-based tool designed for
+                processing, analyzing, and interpreting metabolomic data. It
+                handles most of the common metabolomic data types including
+                compound concentration lists, spectral bin lists, peak lists,
+                and raw mass spectrometry (MS) spectra.
+                <br /><br />
+                PubMed: 25897128, 27603023, 22553367, 21637195, 21633943,
+                19429898, 30909447, 29955821, 29762782
+            </p>
+            <ul class="list-unstyled">
+                <li>
+                    MetATT is an easy-to-use, web-based tool designed for
+                    time-series and two-factor metabolomics data analysis.
+                    MetATT offers a number of complementary approaches including
+                    3D interactive principal component analysis, two-way heatmap
+                    visualization, two-way ANOVA, ANOVA-simultaneous component
+                    analysis, and multivariate empirical Bayes time-series
+                    analysis. <br />PubMed: 21712247
+                </li>
+                <li>
+                    MetPA (Metabolomics Pathway Analysis) is a free and
+                    easy-to-use web application designed to perform pathway
+                    analysis and visualization of quantitative metabolomic
+                    data.<br />
+                    PubMed: 2062807
+                </li>
+                <li>
+                    MSEA is a web-based tool to help identify and interpret
+                    patterns of metabolite concentration changes in a
+                    biologically-meaningful context for human and mammalian
+                    metabolomic studies. <br />PubMed: 20457745
+                </li>
+                <li>
+                    ROCCET is a freely-available, web-based tool designed to
+                    assist clinicians and bench biologists in performing common
+                    ROC-based analyses on their metabolomic data using both
+                    classical univariate and more recently developed
+                    multivariate approaches. Receiver operating characteristic
+                    (ROC) curves are generally considered the method of choice
+                    for evaluating the performance of potential biomarkers.<br />
+                    PubMed: 23543913
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/03/MetaboAnalyst-Logo.png?resize=293%2C300&ssl=1"
+                alt="Image"
+                class="img-fluid"
+            />
+        </div>
+    </div>
+</div>
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div class="container m-2 mx-auto" style="background-color: #e0edf0">
+    <div class="row p-4">
+        <div class="col-md-9 text-dark">
+            <p>
+                Bayesil is a web system that automatically identifies and
+                quantifies metabolites using 1D 1H NMR spectra of ultra-filtered
+                plasma, serum, or cerebrospinal fluid. Bayesil first performs
+                all spectral processing steps, including Fourier transformation,
+                phasing, solvent filtering, chemical shift referencing, baseline
+                correction, and reference line shape convolution automatically.
+                It then deconvolutes the resulting NMR spectrum using a
+                reference spectral library. This deconvolution process
+                determines both the identity and quantity of the compounds in
+                the biofluid mixture. Extensive testing shows that Bayesil meets
+                or exceeds the performance of highly-trained human experts.
+                <br /><br />
+                PubMed: 26017271
+            </p>
+        </div>
+        <div class="col-md-3">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/03/Bayesil-Logo.png?resize=300%2C113&ssl=1"
+                alt="Image"
+                class="img-fluid"
+            />
+        </div>
+    </div>
+</div>
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div
+    class="container text-justify m-2 mx-auto"
+    style="background-color: #bedadf"
+>
+    <div class="row p-4">
+        <div class="col-md-9 text-dark">
+            <p>
+                BioTransformer 3.0 is a freely-available software package for
+                accurate, rapid, and comprehensive in silico metabolism
+                prediction and compound identification. BioTransformer combines
+                a machine learning-based approach with a knowledge-based
+                approach to predict small molecule metabolism in human tissues
+                (e.g. liver tissue), the human gut, as well as the environment
+                (soil and water microbiota).<br /><br />
+                PubMed: 3553652, 30612223
+            </p>
+        </div>
+        <div class="col-md-3">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/04/Biotransformer-Logo.png?resize=300%2C165&ssl=1"
+                alt="Image"
+                class="img-fluid"
+            />
+        </div>
+    </div>
+</div>
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div class="container m-2 mx-auto" style="background-color: #e0edf0">
+    <div class="row p-4">
+        <div class="col-md-9 text-dark">
+            <p>
+                CFM-ID 4.0 provides a method for accurately and efficiently
+                identifying metabolites in spectra generated by electrospray
+                ionization tandem mass spectrometry (ESI-MS/MS). The program
+                uses competitive fragmentation modeling to produce a
+                probabilistic generative model for the MS/MS fragmentation
+                process and machine learning techniques to adapt the model
+                parameters from data.<br /><br />
+                PubMed: 24895432, 27381172, 31013937 <br />
+                Other references: Metabolomics 2015 Feb; 11(1): 98–110.
+            </p>
+        </div>
+        <div class="col-md-3">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/03/cfmidLogo.png?resize=300%2C107&ssl=1"
+                alt="Image"
+                class="img-fluid"
+            />
+        </div>
+    </div>
+</div>
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div
+    class="container text-justify m-2 mx-auto"
+    style="background-color: #bedadf"
+>
+    <div class="row p-4">
+        <div class="col-md-9 text-dark">
+            <p>
+                ClassyFire is a web-based application for automated structural
+                classification of chemical entities. This application uses a
+                rule-based approach that relies on a comprehensible,
+                comprehensive, and computable chemical taxonomy. ClassyFire
+                provides a hierarchical chemical classification of chemical
+                entities (mostly small molecules and short peptide sequences),
+                as well as a structure-based textual description, based on a
+                chemical taxonomy named ChemOnt, which covers 4825 chemical
+                classes of organic and inorganic compounds. It can be accessed
+                via the web interface or via the ClassyFire API. ClassyFire is
+                offered to the public as a freely-accessible web server. Use and
+                redistribution of the data, in whole or in part, for commercial
+                purposes requires explicit permission of the authors and
+                explicit acknowledgement of the source material (ClassyFire) and
+                the original publication (see below). We ask that users who
+                download portions of the database or use the service (via the
+                server or the API) cite the ClassyFire paper in any resulting
+                publications. <br /><br />Pubmed: 27867422
+            </p>
+        </div>
+        <div class="col-md-3">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2023/02/classyfire-logo1.png?w=570&ssl=1"
+                alt="Image"
+                class="img-fluid"
+            />
+        </div>
+    </div>
+</div>
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div class="container m-2 mx-auto" style="background-color: #e0edf0">
+    <div class="row p-4">
+        <div class="col-md-9 text-dark">
+            <p>
+                GC–AutoFit is a web application that automatically identifies
+                and quantifies metabolites using gas chromatography mass
+                spectrometry (GC-MS) data. GC-AutoFit currently accepts .CDF and
+                .mzXML file formats. It uses alkane standards to calculate the
+                retention index (RI) of each peak in the sample. The extracted
+                EI-MS (electron ionization mass spectrometry) spectra from each
+                peak, along with the RIs, are then compared to reference spectra
+                (RIs and EI-MS) in the specified library to identify and
+                quantify the compounds. The inclusion of blank spectra is
+                optional, however, it is useful for removing noise effects from
+                the query spectra. Extensive testing shows that GC-AutoFit meets
+                or exceeds the performance of highly-trained human experts.<br /><br />
+                PubMed: 24895432, 27381172, 31013937 Other references:
+                Metabolomics 2015 Feb; 11(1): 98–110.
+            </p>
+        </div>
+        <div class="col-md-3">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/04/GC-Autofit-Logo.png?fit=243%2C42&ssl=1"
+                alt="Image"
+                class="img-fluid"
+            />
+        </div>
+    </div>
+</div>
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div
+    class="container text-justify m-2 mx-auto"
+    style="background-color: #bedadf"
+>
+    <div class="row p-4">
+        <div class="col-md-9 text-dark">
+            <p>
+                MAGMET is a web-based system that automatically identifies and
+                quantifies metabolites using 1D 1H NMR spectra of serum. MAGMET
+                first performs all spectral processing steps, including Fourier
+                transformation, phasing, solvent filtering, chemical shift
+                referencing, baseline correction, and reference line shape
+                convolution automatically. It then deconvolutes the resulting
+                NMR spectrum using a reference spectral library, which here
+                contains the signatures of more than 60 metabolites. This
+                deconvolution process determines both the identity and quantity
+                of the compounds in the biofluid mixture. Extensive testing
+                shows that MAGMET meets or exceeds the performance of
+                highly-trained human experts.<br /><br />
+                PubMed: 21360156
+            </p>
+        </div>
+        <div class="col-md-3">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/06/magmet_logo_transparent.png?w=537&ssl=1"
+                alt="Image"
+                class="img-fluid"
+            />
+        </div>
+    </div>
+</div>
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div class="container m-2 mx-auto" style="background-color: #e0edf0">
+    <div class="row p-4">
+        <div class="col-md-9 text-dark">
+            <p>
+                PHASTER (<strong>PHA</strong>ge <strong>S</strong>earch
+                <strong>T</strong>ool – <strong>E</strong>nhanced
+                <strong>R</strong>elease) is a significant upgrade to the
+                popular PHAST web server for the rapid identification and
+                annotation of prophage sequences within bacterial genomes and
+                plasmids. While the steps in the phage identification pipeline
+                in PHASTER remain largely the same as in the original PHAST,
+                numerous software improvements and significant hardware
+                enhancements have now made PHASTER faster, more efficient, more
+                visually appealing and much more user-friendly. A number of
+                other optimizations have been implemented, including automated
+                algorithms to reduce the size and redundancy of PHASTER’s
+                databases, improvements in handling multiple (metagenomic)
+                queries and high user traffic, and the ability to perform
+                automated look-ups against >14,000 previously PHAST/PHASTER
+                annotated bacterial genomes (which can lead to complete phage
+                annotations in seconds as opposed to minutes). PHASTER’s web
+                interface has also been entirely rewritten. A new graphical
+                genome browser has been added, gene/genome visualization tools
+                have been improved, and the graphical interface is now more
+                modern, robust, and user-friendly. <br /><br />PubMed: 27141966
+            </p>
+        </div>
+        <div class="col-md-3">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/04/Phaster-Logo.jpeg?resize=768%2C192&ssl=1"
+                alt="Image"
+                class="img-fluid"
+            />
+        </div>
+    </div>
+</div>
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div
+    class="container text-justify m-2 mx-auto"
+    style="background-color: #bedadf"
+>
+    <div class="row p-4">
+        <div class="col-md-9 text-dark">
+            <p>
+                PolySearch 2.0 is an online search engine and text-mining system
+                for identifying relationships between human diseases, genes,
+                proteins, drugs, metabolites, toxins, metabolic pathways,
+                organs, tissues, subcellular organelles, positive health
+                effects, negative health effects, drug actions, Gene Ontology
+                terms, MeSH terms, ICD-10 medical codes, biological taxonomies,
+                and chemical taxonomies. PolySearch 2.0 supports a generalized
+                ‘given X, find all associated Ys’ query, where X and Y can be
+                selected from the aforementioned biomedical entities.
+                <br />
+                <br />PubMed: 25925572, 18487273
+            </p>
+        </div>
+        <div class="col-md-3">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/11/polysearch2-logo.jpg?resize=300%2C66&ssl=1"
+                alt="Image"
+                class="img-fluid"
+            />
+        </div>
+    </div>
+</div>
+<div class="custom-line bg-soft-success mx-auto"></div>
+<div class="container m-4" style="background-color: #e0edf0">
+    <div class="row p-4">
+        <div class="col-md-12 text-dark">
+            <h1 class="section-heading fw-bold text-center text_darkred">
+                Coming Soon: LC AutoFit and Phastest
+            </h1>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

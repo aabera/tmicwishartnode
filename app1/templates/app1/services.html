@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- our_services -->
+<div class="our_services ">
+	<div class="container">
+		<div class="section_title">
+			<h1 class="section-heading fw-bold text-center text_darkred">Metabolomics Services</h1>
+			<div class="title_desc text-justify pt-3 text-dark" style="font-weight: 400">Explore the TMIC Wishart Node’s
+				metabolomics service offerings, including LC-MS, GC-MS, ICP-MS, NMR, and UV-LC. We perform targeted and untargeted metabolomic analysis, as well as lipidomics and proteomics. We also offer customized services – just contact us!
+			</div>
+		</div>
+		<div class="w-100 text-center pt-5">
+			<button class="filter_btn w-100 border-0 text-center fw-bold py-2" onclick="toggleClass('filter_Popup','show')" type="button">Filter</button>
+		</div>
+		<div class="product_services pt-5">
+			<div class="row">
+				{% for item in items %}
+				<div class="col-sm-6 col-lg-4 p-3">
+					<div class="single_product w-100">
+						<div
+								class="product_img w-100 mx-auto"><img alt="" class="w-100" src="{{ item.image.url }}">
+						</div>
+						<div class="product_desc text-center">
+							<span class="product_name d-block text_darkred">{{ item.title }}</span>
+							<span class="product_price d-block text-asparagus fw-semibold py-2">${{ item.min_price }} –
+	                            ${{ item.max_price }}
+	                            </span>
+							<a class="buy_btn d-inline-block bg-darkRed text-white fw-bold border-0 px-4 py-2"
+							   href="{% url 'app1:select_option' slug=item.slug %}">Select-Option</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="pagination justify-content-center pt-5">
+				<ul class="d-flex align-items-center justify-content-center">
+					<li class="d-block bg-darkRed text-white rounded-2 py-2 px-3 mx-1">1</li>
+					<li class="d-block bg-darkRed text-white rounded-2 py-2 px-3 mx-1">2</li>
+					<li class="d-block bg-darkRed text-white rounded-2 py-2 px-3 mx-1">3</li>
+					<li class="d-block bg-darkRed text-white rounded-2 py-2 px-3 mx-1">4</li>
+					<li class="d-block bg-darkRed text-white rounded-2 py-2 px-3 ms-3">
+						<i aria-hidden="true" class="fa fa-long-arrow-right"></i></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container" class="font-size: 22px; ">
+	<p>All prices are in Canadian dollars (CAD).
+		When you submit your order during the checkout process, you will not be charged. We will confirm project details with you first and payment instructions will be included on an invoice.
+	</p>
+</div>
+
+<!-- filter_popup -->
+<!--  <div id="filter_Popup" class="filter_popup position-fixed top-0 end-0 w-100">-->
+<!--    <span class="popup_back" onclick="removeleClass('filter_Popup','show')"></span>-->
+<!--    <form class="d-flex flex-column position-absolute top-0 end-0 p-5">-->
+<!--        <div class="d-flex w-100 align-items-center search_filter">-->
+<!--            <input id="search_filter" class="d-block w-100 px-3 py-2" type="search" placeholder="Search Our Services" aria-label="Search">-->
+<!--            <label for="search_filter" class="d-block ps-3"><i class="fa fa-search" aria-hidden="true"></i></label>-->
+<!--        </div>-->
+<!--        <div class="select_group w-100 py-3">-->
+<!--            <span class="d-block instrument text-aurometalsaurus fw-bold pb-2">Instrument/Equipment</span>-->
+<!--            <select name="instrument" class="w-100 border-2 py-2 px-3" id="instrument">-->
+<!--                <option class="d-block" value="any">Any</option>-->
+<!--                <option class="d-block" value="cs-ms">CS-MS (3)</option>-->
+<!--                <option class="d-block" value="gs-ms">GS-MS (3)</option>-->
+<!--                <option class="d-block" value="icp-ms">IPS-MS (2)</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div class="select_group w-100 py-3">-->
+<!--            <span class="d-block chemaicl_class text-aurometalsaurus fw-bold pb-2">Chemical Class</span>-->
+<!--            <select name="chemaicl_class" class="w-100 border-2 py-2 px-3" id="chemaicl_class">-->
+<!--                <option class="d-block" value="">Any</option>-->
+<!--                <option class="d-block" value="anthocyanins">Anthocyanins (1)</option>-->
+<!--                <option class="d-block" value="chlorophylls">Chlorophylls (1)</option>-->
+<!--                <option class="d-block" value="nucleosides">Nucleosides (1)</option>-->
+<!--                <option class="d-block" value="nucleotides">Nucleotides (1)</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div class="select_group w-100 py-3">-->
+<!--            <span class="d-block chemaicl_class text-aurometalsaurus fw-bold pb-2">Metabolic Pathway</span>-->
+<!--            <select name="chemaicl_class" class="w-100 border-2 py-2 px-3" id="chemaicl_class">-->
+<!--                <option value="">Any</option>-->
+<!--                <option value="chlorophyll-metabolism">Chlorophyll Metabolism (1)</option>-->
+<!--                <option value="flavanoid-metabolism">Flavanoid Metabolism (1)</option>-->
+<!--                <option value="heme-metabolism">Heme Metabolism (1)</option>-->
+<!--                <option value="oxidation-pathway">Oxidation Pathway (1)</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div class="price_section py-2">-->
+<!--            <span class="d-block price text-aurometalsaurus fw-bold pb-1">Price</span>-->
+<!--            <div class="d-flex align-items-center">-->
+<!--                <input type="checkbox" name="first_price" id="first_price">-->
+<!--                <label for="first_price" class="text-aurometalsaurus ps-2">0-$100 (4)</label>-->
+<!--            </div>-->
+<!--            <div class="d-flex align-items-center">-->
+<!--                <input type="checkbox" name="second_price" id="second_price">-->
+<!--                <label for="second_price" class="text-aurometalsaurus ps-2">0-$150 (4)</label>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="type_section py-2">-->
+<!--            <span class="d-block price text-aurometalsaurus fw-bold pb-1">Sample Type</span>-->
+<!--            <div class="d-flex align-items-center">-->
+<!--                <input type="checkbox" name="first_type" id="first_type">-->
+<!--                <label for="first_type" class="text-aurometalsaurus ps-2">Liquid (4)</label>-->
+<!--            </div>-->
+<!--            <div class="d-flex align-items-center">-->
+<!--                <input type="checkbox" name="second_type" id="second_type">-->
+<!--                <label for="second_type" class="text-aurometalsaurus ps-2">Solid (4)</label>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="volume_section py-2">-->
+<!--            <span class="d-block price text-aurometalsaurus fw-bold pb-1">Minium Volume</span>-->
+<!--            <div class="d-flex align-items-center">-->
+<!--                <input type="checkbox" name="first_volume" id="first_volume">-->
+<!--                <label for="first_volume" class="text-aurometalsaurus ps-2">100 µL - 200 µL (4)</label>-->
+<!--            </div><div class="d-flex align-items-center">-->
+<!--                <input type="checkbox" name="second_volume" id="second_volume">-->
+<!--                <label for="second_volume" class="text-aurometalsaurus ps-2">20 mg - 100 mg (2)</label>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="select_group w-100 py-3">-->
+<!--            <span class="d-block node_section text-aurometalsaurus fw-bold pb-2">Node</span>-->
+<!--            <select name="node_section" class="w-100 border-2 py-2 px-3" id="node_section">-->
+<!--                <option value="">Any</option>-->
+<!--                <option value="chlorophyll-metabolism">Wishart (4)</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div class="popup_btn d-flex">-->
+<!--            <div class="w-100 px-2"><button type="reset" class="btn_reset w-100 border-0" onclick="removeleClass('filter_Popup','show')">Cancle</button></div>-->
+<!--            <div class="w-100 px-2"><button type="submit" class="btn_submit w-100 border-0" onclick="removeleClass('filter_Popup','show')">Submit</button></div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--  </div>-->
+
+{% endblock content %}

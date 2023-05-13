@@ -1,0 +1,97 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+    p {
+        color: #373c3d;
+    }
+</style>
+<div>
+    <h1 class="section-heading fw-bold text-center text_darkred">
+        The Wishart Node Process
+    </h1>
+</div>
+<div class="container" style="width: 70%">
+    <div class="row mx-auto col-11 mb-3" style="background: #e7e7e7">
+        <div class="col-md-6">
+            <p>Step 1</p>
+            <img src="https://www.geopoll.com/wp-content/uploads/2022/08/phone-ge902fcbf9_640.png" alt="Tiny Graph" class="img-fluid rounded mb-4" style="width: 60px; height: 60px;">
+
+        </div>
+        <div class="col-md-6 title_desc text-justify fw-semibold pt-3">
+            <p>
+                Contact the Wishart Node with your project details, or let us
+                design the project for you.
+            </p>
+        </div>
+    </div>
+    <div class="row mx-auto col-11 mb-3" style="background: #e7e7e7">
+        <div class="col-md-6">
+            <p>Step 2</p>
+        </div>
+        <div class="col-md-6 title_desc text-justify fw-semibold pt-3">
+            <p>
+                Ship your samples to the TMIC Wishart Node at the University of
+                Alberta in Edmonton, Canada.
+            </p>
+        </div>
+    </div>
+    <div class="row mx-auto col-11 mb-3" style="background: #e7e7e7">
+        <div class="col-md-6">
+            <p>Step 3</p>
+
+        </div>
+        <div class="col-md-6 title_desc text-justify fw-semibold pt-3">
+            <p>
+                Once your samples have arrived, the Wishart Node team will begin
+                its <a href="{% url 'app1:quality' %}">quality-controlled </a> analysis according to your project
+                specifications. The results will be compiled into a
+                comprehensive, easy-to-read report and emailed to you.
+            </p>
+        </div>
+    </div>
+    <div>
+        <div style="text-align: center">
+            <h1 class="text-dark font-weight-bold">Ready to Begin?</h1>
+            <a href="{% url "app1:contact" %}">
+            <button
+                class="btn btn-primary btn-lg m-3"
+                style="font-size: 20px; padding: 10px 20px"
+                
+            >
+                Contact Us
+            </button></a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid text-center p-4" style="background: #bedadf">
+    <p class="text-dark" style="font-size:20px">
+        Can I do metabolomics for as little as $25 per sample?
+    <i class="fas fa-check text-danger p-4"></i>
+ 
+
+    </p>
+    <p class="text-dark" style="font-size:20px">
+        Can metabolomics be a useful tool in advancing my research? <i class="fas fa-check text-danger p-4"></i>
+    </p>
+    <p class="text-dark" style="font-size:20px">
+        Can metabolomics help me identify new disease biomarkers? <i class="fas fa-check text-danger p-4"></i>
+    </p>
+    <p class="text-dark" style="font-size:20px">
+        Can metabolomics help identify new drug leads? <i class="fas fa-check text-danger p-4"></i>
+    </p>
+    <p class="text-dark" style="font-size:20px">
+        Can metabolomics improve the quality and consistency of beer? <i class="fas fa-check text-danger p-4"></i>
+    </p>
+    <p class="text-dark" style="font-size:20px">
+        Can metabolomics be used in soil and water testing? <i class="fas fa-check text-danger p-4"></i>
+    </p>
+    <p class="text-dark" style="font-size:20px">
+        Can metabolomics improve crop production? <i class="fas fa-check text-danger p-4"></i>
+    </p>
+    <p class="text-dark" style="font-size:20px">
+        Can metabolomics help my family and me to achieve better health? <i class="fas fa-check text-danger p-4"></i>
+
+    </p>
+   
+</div>
+
+{% endblock content %}

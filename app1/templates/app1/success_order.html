@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+	<div id="summary-receipts">
+		<p>Thank you. Your order has been received.</p>
+		<div style="display: flex; gap:5; font-size: 14px; justify-content: space-between; width: 35%">
+			<div class="flex-column px-1" style="display: flex; justify-content: space-between">
+				<span style="font-size: 10px;">ORDER NUMBER:</span>
+				<span style="font-weight: bold;">{{ order_id }}</span>
+			</div>
+			<div class="flex-column px-1"
+			     style="display: flex; justify-content: space-between; border-left: 1px dotted #777">
+				<span style="font-size: 10px;">DATE:</span>
+				<span style="font-weight: bold;">{{ date|date:"F j, Y" }}</span>
+			</div>
+			<div class="flex-column px-1"
+			     style="display: flex; justify-content: space-between;border-left: 1px dotted #777">
+				<span style="font-size: 10px;">TOTAL:</span>
+				<span style="font-weight: bold;">${{total}}</span>
+			</div>
+			<div class="flex-column px-1"
+			     style="display: flex; justify-content: space-between;border-left: 1px dotted #777">
+				<span style="font-size: 10px;">PAYMENT METHOD:</span>
+				<span style="font-weight: bold;">Check payments</span>
+			</div>
+		</div>
+	</div>
+	<p class="pt-4">Make your check payable to University of Alberta.</p>
+	<div id="summary-cart">
+		<h2 style="color: #E04145;margin-bottom: 5px ">Order details</h2>
+		<div>
+			<table cellspacing="0" class="table table-striped table-hover table-bordered"
+			       style="border-color: #ccc;">
+				<thead style="background: white">
+					<th width="80%">Product</th>
+					<th width="20%">Total</th>
+				</thead>
+				<tbody>
+				{% for item in object %}
+				<tr style="background: #fff; margin-top:2px; border-radius: 5px; padding: 10px">
+					<td style="padding: 10px;font-size: 16px; font-weight: 400"><a href="{% url 'app1:select_option' slug=item.slug %}"> {{ item.product }}-{{item.category}}</a> {% if item.quantity > 1 %} <span style="font-size: 12px">x{{item.quantity }}</span> {% endif %}</td>
+					<td style="padding: 10px;font-size: 16px; font-weight: 400">${{ item.total }}0</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>Subtotal:</th>
+					<th>${{ total }}.00</th>
+				</tr>
+				<tr>
+					<th>Tax:</th>
+					<th>Check payments</th>
+				</tr>
+				<tr>
+					<th>Payment method:</th>
+					<th>0</th>
+				</tr>
+				<tr>
+					<th>Total</th>
+					<th>${{ total }}.00</th>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

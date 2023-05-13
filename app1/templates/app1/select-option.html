@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="select_option py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="product_img px-3">
+					<img alt="" class="w-100" src="{{ item.image.url }}">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="product_data px-3">
+					<span class="d-block product_data_heading fw-bold">{{ item.title }}</span>
+					<span class="data_price d-block text-asparagus pt-3 pb-2 py-md-3">${{ item.min_price }} – ${{item.max_price }}</span>
+					<p class="product_data_desc">{{ item.description }}</p>
+					<span class="d-block classification fw-bold py-2">Client Classification</span>
+
+					<select class="w-100 border-darked border border-2 rounded-2 text_darked p-2" id="classification" name="classification">
+						<option class="d-block py-1">Choose Value ...</option>
+						<option class="d-block py-1" value="industry">Industry</option>
+						<option class="d-block py-1" value="government">Goverment</option>
+						<option class="d-block py-1" value="academic">Acadamic</option>
+					</select>
+					{% if item.title == "LC-MS (Targeted) for Food Composition" or item.title == "LC-MS (Targeted) for Plant Analysis" %}
+					<span class="d-block classification fw-bold py-2">Type of Analysis</span>
+					<select class="w-100 border-darked border border-2 rounded-2 text_darked p-2" id="analysis" name="classification"
+					        onchange="analysis_change()">
+						<option class="d-block py-1">Choose Value ...</option>
+						<option class="d-block py-1" value="full_panel">Full Panel</option>
+						<option class="d-block py-1" value="without_polyphenols">Without Polyphenols</option>
+					</select>
+					{% endif %}
+
+					{% if item.title == "TMIC MEGA Assay (LC-MS Targeted)" or item.title == "NMR Targeted/Untargeted Analysis" %}
+					<span class="d-block classification fw-bold py-2">Sample Type</span>
+					<select class="w-100 border-darked border border-2 rounded-2 text_darked p-2" id="sample" name="classification"
+					        onchange="sample_change()">
+						<option class="d-block py-1">Choose Value ...</option>
+						<option class="d-block py-1" value="serum">Serum/Plasma</option>
+						<option class="d-block py-1" value="fecal">Fecal</option>
+						{% if item.title == "TMIC MEGA Assay (LC-MS Targeted)" %}
+						<option class="d-block py-1" value="urine">Urine</option>
+						<option class="d-block py-1" value="ratios">With ratios</option>
+						{% elif item.title == "NMR Targeted/Untargeted Analysis" %}
+						<option class="d-block py-1" value="other">Other Sample</option>
+						{% endif %}
+					</select>
+					{% endif %}
+					<div class="product_price text-asparagus py-3" id="final-price" name="price"></div>
+					<div class="d-flex w-100">
+						<input class="" id="quantity" min="1" type="number" value="1"/>
+						<button
+								class="addcart_btn w-100 bg-darkRed text-white border text-center border-1 border-darkred rounded-2 py-1 ms-3"
+								id="add-to-cart-btn">Add To Cart
+						</button>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-12 description pt-5 px-3">
+				<p>
+					<strong>Cost per Sample:</strong>
+					<span>{{ item.cost_per_sample }}</span>
+				</p>
+				<p>
+					<strong>Matrices / Biosamples:</strong>
+					<span>{{ item.matrices }}</span>
+				</p>
+				<p>
+					<strong>Volume Requirement: </strong>
+					<span>{{ item.vol_requirements }}</span>
+				</p>
+				<p>
+					<strong>Species: </strong>
+					<span>{{ item.species }}</span>
+				</p>
+				<p>
+					<strong>Pathways: </strong>
+					<span>{{ item.pathways }}</span>
+				</p>
+				<p>
+					<strong>Compound Classes: </strong>
+					<span>{{ item.compound_classes }}</span>
+				</p>
+				<p>
+					<strong>Number of Compounds: </strong>
+					<span>{{ item.no_of_compounds }}</span>
+				</p>
+				<p>
+					<strong>Quantitative: </strong>
+					<span>{{ item.quantitative }}</span>
+				</p>
+				<p>
+					<strong>Compound List: </strong>
+					<span>{{ item.compound_list }}</span>
+				</p>
+				<p>
+					<strong>Validation or Publication: </strong>
+					<span class="d-block">{{ item.validation }}</span>
+				</p>
+				<p>
+					<strong>Note about Ordering: </strong>
+				<p>Once you have added your choices to the cart and checked out, an email will be sent to you detailing your order. Next, we will contact you to clarify and confirm project details, upon which we will send you a statement of work, which will define the scope and total cost of your project and which will include further instructions, such as shipping of samples. Generally, after results and reporting, you will receive an invoice with payment instructions. For some projects, there may be a down payment. All prices are listed in Canadian dollars.</p>
+				</p>
+				<p>
+					The Wishart Node of The Metabolomics Innovation Centre can accommodate almost any request for metabolomic analysis. If you don’t see what you are looking for in our shop, or would like assistance to design a budget-friendly project, please contact us and we would be happy to help.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	let final_price = "";
+	let classification;
+	let analysis = "";
+	let sample = "";
+
+	function calculatePrice(sampleType, analysis) {
+	  let price = 0;
+
+	  if (sampleType === "industry" && analysis === "without_polyphenols") {
+	    price = 78.00; // set price for industry sample type without analysis
+	  } else if (sampleType === "industry" && analysis === "full_panel") {
+	    price = 130.00; // set price for industry sample type with full analysis
+	  } else if (sampleType === "government"  || sampleType === "academic" && analysis === "without_polyphenols") {
+	    price = 60.00; // set price for government sample type without analysis
+	  } else if (sampleType === "government"  || sampleType === "academic" && analysis === "full_panel") {
+	    price = 100.00; // set price for government sample type with full analysis
+	  }
+	  return price;
+	}
+
+	function calculatePriceSample(clientType, sample) {
+	  let price = 0;
+
+	  if (clientType === "industry") {
+	    switch (sample) {
+	      case "serum":
+	        price = 50; // set price for industry client type and serum sample
+	        break;
+	      case "fecal":
+	        price = 75; // set price for industry client type and fecal sample
+	        break;
+	      case "urine":
+	        price = 60; // set price for industry client type and urine sample
+	        break;
+	      case "ratios":
+	        price = 100; // set price for industry client type and ratios sample
+	        break;
+	      case "other":
+	        price = 80; // set price for industry client type and other sample
+	        break;
+	      default:
+	        price = 0; // set price to 0 for invalid sample types
+	    }
+	  } else if (clientType === "government" || clientType === "academic") {
+	    switch (sample) {
+	      case "serum":
+	        price = 25; // set price for government client type and serum sample
+	        break;
+	      case "fecal":
+	        price = 40; // set price for government client type and fecal sample
+	        break;
+	      case "urine":
+	        price = 30; // set price for government client type and urine sample
+	        break;
+	      case "ratios":
+	        price = 50; // set price for government client type and ratios sample
+	        break;
+	      case "other":
+	        price = 35; // set price for government client type and other sample
+	        break;
+	      default:
+	        price = 0; // set price to 0 for invalid sample types
+	    }
+	  }
+
+	  return price;
+	}
+
+
+<!--	Determining price based on the classification-->
+	const classificationSelect = document.getElementById("classification");
+	const analysisSelect = document.getElementById("analysis");
+	const sampleSelect = document.getElementById("sample");
+	const finalPrice = document.getElementById("final-price");
+	const addToCartBtn = document.getElementById("add-to-cart-btn");
+
+	classificationSelect.addEventListener("change", function() {
+	  const selectedOption = classificationSelect.value;
+	  classification = classificationSelect.value;
+	  console.log(`Selected option is: ${selectedOption}`);
+	  if("{{item.title|safe}}" !== "LC-MS (Targeted) for Food Composition" && "{{item.title|safe}}" !== "LC-MS (Targeted) for Plant Analysis" && "{{item.title|safe}}" !== "TMIC MEGA Assay (LC-MS Targeted)" && "{{item.title|safe}}" !== "NMR Targeted/Untargeted Analysis"){
+		  if (selectedOption === "industry"){
+		    finalPrice.innerHTML = `{{ item.max_price|safe }}`
+		    final_price = `{{ item.max_price|safe }}`
+		  }
+		  else{
+			finalPrice.innerHTML = `{{ item.min_price|safe }}`
+			final_price = `{{ item.min_price|safe }}`
+		  }
+	  }else if("{{item.title}}" == "TMIC MEGA Assay (LC-MS Targeted)" || "{{item.title}}" == "NMR Targeted/Untargeted Analysis"){
+	    console.log("Hello Boy")
+	    if(sample !== ""){
+	        console.log(classification, sample)
+	        x = calculatePriceSample(classification, sample)
+	        finalPrice.innerHTML = x
+	        final_price = x
+	    }
+	  } else{
+	    if(analysis !== ""){
+		  x = calculatePrice(classification, analysis)
+		  finalPrice.innerHTML = x
+		  final_price = x
+		}
+	  }
+	});
+
+	function analysis_change() {
+	  const selectedOption = analysisSelect.value;
+	  analysis = analysisSelect.value;
+	  x = calculatePrice(classification, analysis)
+	  finalPrice.innerHTML = x
+	  final_price = x
+	};
+
+	function sample_change() {
+	  const selectedOption = sampleSelect.value;
+	  sample = sampleSelect.value;
+	  x = calculatePrice(classification, analysis)
+	  finalPrice.innerHTML = x
+	  final_price = x
+	};
+
+	function getCookie(name) {
+	  const cookieValue = document.cookie.match('(^|[^;]+)\\s*' + name + '\\s*=\\s*([^;]+)');
+	  return cookieValue ? cookieValue.pop() : '';
+	}
+
+	function setCookie(name, value, days) {
+	  const date = new Date();
+	  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+	  const expires = "expires=" + date.toUTCString();
+	  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+	}
+
+<!--	Listening to the cart submit button-->
+	addToCartBtn.addEventListener("click", function(event) {
+	  event.preventDefault();
+
+	  // Check if the final price is empty
+	  console.log("Hello", final_price)
+	  if (final_price === "" || final_price === NaN || final_price === undefined) {
+	    // Disable the button
+	    return addToCartBtn.disabled = true;
+	  } else {
+	    addToCartBtn.disabled = false;
+	  }
+	  const quantity = document.getElementById("quantity").value;
+	  const item_id = {{ item.id|safe }};
+	  const price = parseInt(final_price);
+	  const subtotal = 0;
+
+	  const classification = document.getElementById("classification").value;
+	  let cart = getCookie('cart');
+	  if (cart) {
+	    cart = JSON.parse(cart);
+	    let found = false;
+	    for (const [key, value] of Object.entries(cart)) {
+	      const cart_item = value;
+	      if (cart_item.item_id === item_id && cart_item.classification === classification) {
+	        cart_item.quantity += parseInt(quantity);
+	        cart_item.subtotal += cart_item.quantity * price;
+	        found = true;
+	        break;
+	      }
+	    }
+	    if (!found) {
+	      const order_item = {
+	        item_id: item_id,
+	        quantity: parseInt(quantity),
+	        price: price,
+	        subtotal: subtotal,
+	        classification: classification,
+	        analysis: analysis,
+	        sample: sample
+	      };
+	      cart[item_id + '_' + classification] = order_item;
+	    }
+	    setCookie('cart', JSON.stringify(cart), 1); // set cookie with 1 day expiration
+	    alert("Item added to cart");
+	  } else {
+	    const order_item = {
+	      item_id: item_id,
+	      quantity: parseInt(quantity),
+	      price: price,
+	      subtotal: subtotal,
+	      classification: classification,
+	      analysis: analysis,
+	      sample: sample
+	    };
+	    cart = {};
+	    cart[item_id + '_' + classification] = order_item;
+	    setCookie('cart', JSON.stringify(cart), 1); // set cookie with 1 day expiration
+	    alert("Item added to cart");
+	  }
+	  window.location.href = "{% url 'app1:order-summary' %}";
+	  console.log("Add to cart button clicked!");
+	});
+
+	// Add an event listener that listens for changes to the value of final_price
+	document.getElementById("final-price").addEventListener("change", function() {
+	  // Check if the final price is empty
+	  if (final_price === "" || final_price === NaN || final_price === undefined) {
+	    // Disable the button
+	    addToCartBtn.disabled = true;
+	  } else {
+	    addToCartBtn.disabled = false;
+	  }
+	});
+</script>
+{% endblock content %}
+

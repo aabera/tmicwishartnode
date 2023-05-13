@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  .tooltip-text {
+    font-size: 14px;
+    background-color: #2d284b!important;
+    color: #fff;
+    display: none;
+  }
+
+  .form-check-label:hover + .tooltip-text {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    padding: 5px;
+    width: 100%;
+    text-align: justify;
+    border-radius: 3px;
+  }
+
+  .place-order{
+    padding: 7px 12px;
+    border-radius: 5px;
+    color: white;
+    background-color: #7866ff;
+    outline: none;
+    border: none;
+  }
+
+
+
+
+</style>
+<div class="belling_details mb-3">
+	<div class="container">
+		<div class="w-100 pb-3">
+			<h1 class="checkoutheading text-dark">Your Order</h1>
+			<div class="p-5 mt-3" style="background-color: #443e6d; border-radius: 5px">
+				<div>
+					<table cellspacing="0" class="table table-striped table-hover table-bordered" style="border-color: #ccc; border-spacing: 0 10px;">
+						<thead style="background: white">
+						<th width="15%">Product</th>
+						<th width="45%"></th>
+						<th width="20%">Quantity</th>
+						<th width="20%">Price</th>
+						</thead>
+						<tbody>
+						{% for item in object %}
+						<tr style="background: #fff; margin-top:2px; border-radius: 5px; padding: 10px">
+							<td class="text-center">
+								<div class="cart_img"><img alt="Cart Img" class="w-100" src="{{ item.image.url }}">
+								</div>
+							</td>
+							<td>{{ item.title }}-{{item.classification}} </td>
+							<td>{{ item.quantity }}</td>
+							<td>${{ item.sub_total }}.00</td>
+						</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<div class="row py-3">
+					<div class="col-md-6 d-flex justify-content-between flex-column">
+						<a class="text-white" href="{% url 'app1:services' %}" id="continue"><i
+								class="bi bi-arrow-left-short"></i>Continue
+							Shopping</a>
+					</div>
+					<div class="col-md-6 d-flex justify-content-end flex-column">
+						<table class="table table-striped table-hover">
+							<tbody style="background: white">
+							<tr>
+								<th>Subtotal</th>
+								<td>${{ total }}.00</td>
+							</tr>
+							<tr>
+								<th>Tax</th>
+								<td>0</td>
+							</tr>
+							<tr>
+								<th>Total</th>
+								<th>${{ total }}.00</th>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion" id="accordionExample"
+			     style="background-color: #f1ebff; margin-top: 15px; border-radius: 5px">
+				<div class="accordion-item" style="background-color: #f1ebff">
+					<h2 class="accordion-header">
+						<button aria-controls="collapseOne" aria-expanded="true"
+						        class="accordion-button" data-bs-target="#collapseOne"
+						        data-bs-toggle="collapse" style="background-color: #f1ebff; color: black" type="button">
+							<span
+									style="padding-right: 10px"><i class="bi bi-person-fill"
+							                                       style="font-size: 22px"></i></span>
+							Returning customer? <span
+								style="text-decoration: underline; color: #7866ff; padding-left: 5px">Click
+							here to
+							login</span>
+						</button>
+					</h2>
+					<div class="accordion-collapse collapse" data-bs-parent="#accordionExample" id="collapseOne">
+						<div class="accordion-body">
+							<form action="{% url 'app1:login' %}" method="POST">
+								{% csrf_token %}
+								<h4 class="text-dark">If you have shopped with us before, please enter your details
+									below. If you are
+									a new customer, please proceed to the Billing section.</h4>
+								<div class="mb-3">
+									<label class="form-label d-flex align-items-center" for="email">Email address
+										<i aria-hidden="true"
+										   class="fa fa-asterisk requierd_icon"></i></label>
+									<input aria-describedby="emailHelp" autocomplete="off" class="form-control"
+									       id="email" name="email" type="email">
+								</div>
+								<div class="mb-3">
+									<label class="form-label d-flex align-items-center" for="password">Password
+										<i aria-hidden="true"
+										   class="fa fa-asterisk requierd_icon"></i></label>
+									<input autocomplete="off" class="form-control" id="password" name="password"
+									       type="password">
+								</div>
+								<div class="mb-3 form-check">
+									<input class="form-check-input" id="remember-me" type="checkbox">
+									<label class="form-check-label" for="remember-me">Remember me</label>
+								</div>
+								<button class="place-order" style="background-color: #7866ff" type="submit">Login</button>
+								<a class="float-end" href="{% url 'password_reset' %}"
+								   style="text-decoration: none;color:#7866ff">Forgot
+									Password?</a>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<form action="{% url 'app1:register' %}" class="row belling_form py-2" method="POST">
+			{% csrf_token %}
+			<div class="col-md-6 ">
+				<h1 class="checkoutheading text-dark">Client Details</h1>
+				<div class="row">
+					<div class="col-sm-6 pb-2 ">
+						<label class="w-100 d-flex align-items-center" for="f_name" style="color: #443e6d"><span>First
+							Name</span><i
+								aria-hidden="true"
+								class="fa fa-asterisk requierd_icon"></i></label>
+						<input class="w-100" id="f_name" name="f_name" type="text">
+					</div>
+					<div class="col-sm-6 pb-2">
+						<label class="w-100 d-flex align-items-center" for="l_name" style="color: #443e6d"><span>Last Name</span><i
+								aria-hidden="true"
+								class="fa fa-asterisk requierd_icon"></i></label>
+						<input class="w-100" id="l_name" name="l_name" type="text">
+					</div>
+					<div class="col-12 pb-2">
+						<label class="w-100" for="company_name" style="color: #443e6d">Company Name (Optional)</label>
+						<input class="w-100" id="company_name" name="company_name" type="text">
+					</div>
+					<div class="col-12 pb-2">
+						<label class="w-100 d-flex align-items-center" for="country" style="color: #443e6d"><span>Country / Rigion</span><i aria-hidden="true"
+						                                                                                                                    class="fa fa-asterisk requierd_icon"></i></label>
+						<select class="w-100 py-1" id="country" name="country">
+							<option value="">Select</option>
+							{% for code, name in country_choices %}
+							<option value="{{ code }}">{{ name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="col-12 pb-2">
+						<label class="w-100 d-flex align-items-center" for="address" style="color: #443e6d"><span>Street Address</span><i aria-hidden="true" class="fa fa-asterisk requierd_icon"></i></label>
+						<textarea class="w-100" id="address" name="address" rows="3"></textarea>
+					</div>
+					<div class="col-12 pb-2">
+						<label class="w-100 d-flex align-items-center" for="city" style="color: #443e6d"><span>Town /
+							City</span><i aria-hidden="true" class="fa fa-asterisk requierd_icon"></i></label>
+						<input class="w-100" id="city" name="city" type="text">
+					</div>
+					<div class="col-12 pb-2">
+						<label class="w-100 d-flex align-items-center" for="province" style="color: #443e6d"><span>Province</span><i aria-hidden="true"
+						                                                                                                             class="fa fa-asterisk requierd_icon"></i></label>
+						<select class="w-100 py-1" id="province" name="province">
+							<option value="indian">Indian</option>
+							<option value="nepalin">Nepalin</option>
+							<option value="russian">Rusaian</option>
+							<option value="u.k">U.K</option>
+						</select>
+					</div>
+					<div class="col-12 pb-2">
+						<label class="w-100 d-flex align-items-center" for="postal_code" style="color: #443e6d"><span>Postal Code</span><i aria-hidden="true"
+						                                                                                                                   class="fa fa-asterisk requierd_icon"></i></label>
+						<input class="w-100" id="postal_code" name="postal_code" type="Number">
+					</div>
+					<div class="col-12 pb-2">
+						<label class="w-100 d-flex align-items-center" for="phone" style="color: #443e6d"><span>Phone</span><i aria-hidden="true"
+						                                                                                                       class="fa fa-asterisk requierd_icon"></i></label>
+						<input class="w-100" id="phone" name="phone" type="tel">
+					</div>
+					<div class="col-12 pb-2">
+						<label class="w-100 d-flex align-items-center" for="e_mail" style="color: #443e6d"><span>Email Address</span><i aria-hidden="true"
+						                                                                                                                class="fa fa-asterisk requierd_icon"></i></label>
+						<input class="w-100" id="e_mail" name="e_mail" type="email">
+					</div>
+					<div class="col-12 pb-2">
+						<div class="d-flex w-100">
+							<input id="account" name="account" type="checkbox">
+							<label class="ms-2" for="account"><span>Create an Account ?</span></label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<h1 class="checkoutheading text-dark">Additional Information</h1>
+				<div class="w-100">
+					<label for="order_note" style="color: #443e6d">Order Note(Optional)</label>
+					<textarea class="w-100" id="order_note" name="order_note" rows="3"></textarea>
+				</div>
+			</div>
+			<div class="order_details"></div>
+			<div class="w-100 p-4" style="background-color: #443e6d; border-radius: 5px">
+				<h2 class="d-block pb-3 text-light">Payment Methods</h2>
+				<div class="form-check">
+					<input checked class="form-check-input" id="flexRadioDefault2" name="flexRadioDefault" type="radio">
+					<label class="form-check-label" data-toggle="tooltip" for="flexRadioDefault2">Default checked radio</label>
+				</div>
+				<div style=" background-color: #2d284b; border: 1px solid #ccc">
+			<span style="font-size: 14px; color: white">After
+				submitting
+				your
+				order, we
+				will send
+				you a statement	of work outlining the details of the
+				project, including timelines and total cost. Once you approve the Statement of Work, an invoice will be sent to you via the email address provided in the order.</span>
+				</div>
+				<br>
+				<hr/>
+				<br>
+				<button class="place-order" type="submit">Place Order</button>
+			</div>
+		</form>
+	</div>
+
+</div>
+
+
+<script>
+  $(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+
+</script>
+{% endblock content %}

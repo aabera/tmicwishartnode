@@ -1,0 +1,280 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+    .col-sm-4 {
+        padding: 20px;
+        font-family: "Lato", sans-serif;
+    }
+
+    a:link {
+        color: green;
+        background-color: transparent;
+        text-decoration: none;
+        text-align: center;
+    }
+    a:hover {
+        color: #e04145;
+        background-color: transparent;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .image-section {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .image-section img {
+        width: 100%;
+        height: 90%;
+    }
+
+    .description-section {
+        flex: 2;
+    }
+
+    .description-section h2 {
+        font-size: 24px;
+        margin-top: 0;
+    }
+
+    .description-section p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    #heading2 {
+        color: e04145;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .column {
+        font-family: Latos;
+        text-align: center;
+        float: left;
+        width: 31%;
+        background: #bedadf;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .column h2 {
+        color: #191919;
+        font-size: 24px;
+        margin-top: 0;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .column p {
+        font-size: 20px;
+        color: #373c3d;
+        line-height: 1.5;
+    }
+    .link {
+        font-weight:bold
+
+        float: center;
+    }
+</style>
+<div class="m-4">
+    <div class="container">
+        <div class="image-section">
+            <img
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2021/12/wishart_head-1.png?resize=280%2C373&ssl=1"
+                alt="Image description"
+            />
+            <p>Dr. David S. Wishart</p>
+        </div>
+
+        <div class="description-section">
+            <h2 class="section-heading fw-bold text-center text_darkred">
+                The Wishart Node Story
+            </h2>
+            <div class="text-justify">
+                <p class="text-dark">
+                    Dr. David Wishart is a pioneer in the field of Metabolomics
+                    and a founding member of The Metabolomics Innovation Centre
+                    (TMIC). TMIC is a nationally-funded core facility supported
+                    by some of Canada’s top metabolomics scientists. Dr.
+                    Wishart’s focus has always been on making metabolomics
+                    matter.
+                </p>
+                <p class="text-dark">
+                    In striving towards this goal, Dr. Wishart has dedicated his
+                    career to providing open accessible, affordable metabolomics
+                    services to not only the scientific and academic community,
+                    but to a wide range of hospitals, clinics, businesses,
+                    government organizations, charities, and other clients from
+                    around the world, with more than 20 countries to date.
+                </p>
+                <p class="text-dark">
+                    The Wishart Node of TMIC includes a diverse team of
+                    committed, hard-working professionals who have brought their
+                    knowledge of and expertise in metabolomics, bioinformatics,
+                    and analytical chemistry from around the globe to create one
+                    of the top metabolomics service labs in the world.
+                </p>
+                <p class="text-dark">
+                    The nationally-funded Wishart Node currently houses >$8
+                    million in state-of-the-art metabolomics equipment. Over the
+                    past decade researchers in the Node have developed nearly 30
+                    different metabolomic assays that can quantitatively measure
+                    >1000 compounds in almost any biological or environmental
+                    sample.
+                </p>
+                <p class="text-dark">
+                    The Wishart Node’s dedication to research and innovative
+                    thinking has helped clients make important metabolomics
+                    discoveries in fields such as clinical diagnostics,
+                    precision medicine, pharmaceutical chemistry, environmental
+                    science, veterinary medicine, agri-food research, forensic
+                    testing, and food analysis.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center margin:10px;">
+        <a id="link" href="https://metabolomicscentre.ca/contact/"
+            >The Wishart Node is ready to help you make exciting discoveries
+            too!</a
+        >
+    </div>
+    <div>
+        <h2 class="section-heading fw-bold text-center text_darkred">
+            Three examples of discoveries that we helped make for our clients:
+        </h2>
+    </div>
+    <div class="row justify-content-center">
+        <div
+            class="col-md-3 m-2 text-justify text-body"
+            style="background-color: #bedadf"
+        >
+            <h2 class="text-dark text-center">
+                Successful Development of Colon Polyp Screening Test
+            </h2>
+            <p class="text-left text-justify text-dark">
+                Successful Development of Colon Polyp Screening Test In 2013,
+                <a href="">Metabolomics Technologies Incorporated (MTI)</a>
+                discovered a panel of 12 urinary metabolites that could be used
+                to detect colonic polyps and early colon cancer using NMR
+                spectroscopy. The test is called PolypDx. However, NMR
+                instruments are not used in clinical settings. MTI asked the
+                Wishart Node at TMIC to help them convert this 12-compound
+                <a href="">PolyDx</a> assay into a 3-compound assay that was
+                compatible with clinically-approved mass spectrometers. By 2016,
+                the Wishart Node had successfully converted the assay to a
+                3-metabololite test that worked on clinical mass spectrometers.
+                Now the PolypDx test is offered in dozens of clinical labs in
+                the USA as a laboratory-developed test (LDT) for rapid,
+                non-invasive colon polyp screening.<br />
+                <br />
+                <a href=""
+                    >Development and Validation of a High-Throughput Mass
+                    Spectrometry Based Urine Metabolomic Test for the Detection
+                    of Colonic Adenomatous Polyps</a
+                >
+                <br />Deng L, Chang D, Foshaug RR, Eisner R, Tso VK, Wishart DS,
+                Fedorak RN. Metabolites. 2017 Jun 22;7(3):32. doi:
+                10.3390/metabo7030032. PMID: 28640228; PMCID: PMC5618317.
+                <br />
+                <img
+                    class="text-center"
+                    src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/01/polypdx_logo_colour.png?fit=275%2C74&ssl=1"
+                    alt="Image description"
+                    style="max-width: 100%; height: auto"
+                />
+            </p>
+        </div>
+        <div
+            class="col-md-3 m-2 text-justify"
+            style="background-color: #bedadf"
+        >
+            <h2 class="text-dark text-center">
+                Ever Wondered What’s In Cow’s Milk?
+            </h2>
+            <p class="text-left text-justify text-dark">
+                Ever Wondered What’s In Cow’s Milk? Milk production is a
+                trillion-dollar-a-year business. As big as it is, not much is
+                known about the many chemicals or nutrients that can be found in
+                commercial cow’s milk. In 2019, in collaboration with dairy
+                scientists at the University of Alberta, the Wishart Node at
+                TMIC completed the most comprehensive chemical analysis of milk
+                ever undertaken. Using a combination of 5 different in-house
+                metabolomic assays (NMR, ICP-MS, GC-MS, LC-MS) and extensive
+                literature mining, they identified nearly 2400 compounds
+                (nutrients, breakdown products, antibiotics, pesticides) that
+                can be found in commercial cow’s milk. All this information,
+                along with detailed descriptions of these molecules and their
+                roles, is now available in the milk composition database (MCDB).
+                Chemical Composition of Commercial Cow’s Milk Foroutan A, Guo
+                AC, Vazquez-Fresno R, Lipfert M, Zhang L, Zheng J, Badran H,
+                Budinski Z, Mandal R, Ametaj BN, Wishart DS. J Agric Food Chem.
+                2019 May 1;67(17):4897-4914. doi: 10.1021/acs.jafc.9b00204. Epub
+                2019 Apr 17. PMID: 30994344.
+            </p>
+            <img
+                class="text-center"
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2021/12/MCDB-with-Letters-4.png?resize=300%2C154&ssl=1"
+                alt="Image description"
+                style="max-width: 100%; height: auto; text-align: center"
+            />
+        </div>
+        <div
+            class="col-md-3 text-justify m-2"
+            style="background-color: #bedadf"
+        >
+            <h2 class="text-dark text-center">
+                Key Triggers for Alzheimer’s Disease
+            </h2>
+            <p class="text-left text-justify text-dark">
+                Key Triggers for Alzheimer’s Disease Alzheimer’s disease (AD)
+                affects almost one-third of people over the age of 85 and costs
+                the North American health system >$350 billion a year. While
+                amyloid fibrils and deposits play a role in the etiology of the
+                disease, it is not clear what actually triggers AD. The Wishart
+                Node at TMIC, in collaboration with AD researchers across the
+                US, recently helped in the discovery that bacterially-derived
+                bile acids can be found in the brains of AD patients. This
+                unexpected finding suggests that a breakdown in gut integrity,
+                along with the blood-brain barrier permeability, may be a key
+                trigger leading to the inflammatory response that ultimately
+                results in amyloid build-up, brain damage, and dementia. This
+                discovery opens new avenues to detect, prevent, and possibly
+                treat AD. Metabolic Network Analysis Reveals Altered Bile Acid
+                Synthesis and Metabolism in Alzheimer’s Disease Baloni P, Funk
+                CC, Yan J, Yurkovich JT, Kueider-Paisley A, Nho K, Heinken A,
+                Jia W, Mahmoudiandehkordi S, Louie G, Saykin AJ, Arnold M,
+                Kastenmüller G, Griffiths WJ, Thiele I, Alzheimer’s Disease
+                Metabolomics Consortium, Kaddurah-Daouk R, Price ND. Cell Rep
+                Med. 2020 Nov 17;1(8):100138. doi: 10.1016/j.xcrm.2020.100138.
+                PMID: 33294859; PMCID: PMC7691449.
+            </p>
+            <img
+                class="text-center"
+                src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/05/Alzheimers-Metabolomics-Consortium.jpeg?resize=300%2C59&ssl=1"
+                alt="Image description"
+                style="max-width: 100%; height: auto; text-align: center"
+            />
+        </div>
+    </div>
+    <div class="text-center margin:10px;">
+        <a class="link" href="https://metabolomicscentre.ca/contact/"
+            >Work with Dr. Wishart and his Team of Experts in the field of
+            Metabolomics.
+        </a>
+    </div>
+    <div style="text-align: center; margin: 20px">
+        <img
+            src="https://i0.wp.com/tmicwishartnode.ca/wp-content/uploads/2022/11/IMG-9248-cropped.jpg?resize=1024%2C495&ssl=1"
+            alt="Image description"
+            style="max-width: 100%; height: auto; width: 800px"
+        />
+    </div>
+</div>
+{% endblock content %}

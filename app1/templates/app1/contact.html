@@ -1,0 +1,142 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+    .mystyle {
+        color: #373c3d;
+    }
+    .form-control {
+        background-color: #ffffff;
+    }
+</style>
+<div class="m-4">
+    <div>
+        <h2 class="section-heading m-4 fw-bold text-center text_darkred">
+            Contact Us
+        </h2>
+        <div class="text-justify text-dark">
+            <p class="text-dark mystyle" style="font-size: 20px">
+                We can answer your questions about our methods, discuss your
+                research or testing design, arrange for metabolomic analysis of
+                your samples, perform bioinformatic analysis and data
+                interpretation, or assist in planning a budget-friendly project.
+
+                <br />Please fill out the contact form below, or get in touch
+                via email, phone, or mail. We will get back to you within two
+                business days of receiving your request.
+            </p>
+        </div>
+    </div>
+    <div
+        class="container"
+        style="background-color: #bedadf; margin-top: 30px; margin-bottom: 30px"
+    >
+        <div class="row">
+            <div class="col-md-8 offset-md-2 p-4">
+                <form>
+                    <div class="form-group mb-4">
+                        <label for="name" class="text-dark">Name*:</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="name"
+                            name="name"
+                        />
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="email" class="text-dark">Email*:</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                        />
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="telephone" class="text-dark"
+                            >Telephone*:</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="telephone"
+                            name="telephone"
+                        />
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="country" class="text-dark">Country*:</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="country"
+                            name="country"
+                        />
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="Specialisation" class="text-dark"
+                            >Academic, Government, Industry, or Other *</label
+                        >
+                        <select
+                            class="form-control"
+                            id="Specialisation"
+                            name="Specialisation"
+                        >
+                            <option value="Academic">Academic</option>
+                            <option value="Government">Government</option>
+                            <option value="Industry">Industry</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="organizations" class="text-dark"
+                            >Organizations*</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="organizations"
+                            name="organizations"
+                        />
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="message" class="text-dark">Message:</label>
+                        <textarea
+                            class="form-control"
+                            id="message"
+                            name="message"
+                            rows="5"
+                        ></textarea>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="GDPR" class="text-dark form-check-label"
+                            >GDPR Agreement *:</label
+                        ><br />
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="I consent to having this website store my submitted information so they can respond to my inquiry."
+                            id="GDPR"
+                        /><span class="text-dark">
+                            I consent to having this website store my submitted
+                            information so they can respond to my inquiry.</span
+                        >
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container p-4" style="background-color: #bedadf">
+    <p class="text-dark text-center p-4" style="font-size: 20px">
+        The Wishart Node of The Metabolomics Innovation Centre has a long
+        history of outstanding metabolomics research and analysis. Its founder,
+        Dr. David Wishart, is world-renowned in the field of metabolomics. The
+        Wishart Node Team looks forward to hearing from you and helping you
+        develop a plan that fits your needs and your budget.
+    </p>
+</div>
+
+{% endblock content %}

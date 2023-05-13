@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+    p {
+        color: #373c3d;
+    }
+</style>
+<div>
+    <h1 class="section-heading fw-bold text-center text_darkred">
+        Learn About Metabolomics
+    </h1>
+    <div class="title_desc text-justify fw-semibold pt-3">
+        <p>
+            In this section, you can learn some basics about the science of
+            metabolomics. What is the difference between targeted and untargeted
+            metabolomics and why does it matter? What is qualitative analysis?
+            What is quantitative analysis? Explore the databases and research
+            papers provided courtesy of the Wishart Node. Watch informative
+            videos on our lab, metabolomics, and bioinformatics.
+            <br />
+            Start your learning journey on the
+            <a href="">What is Metabolomics page</a>. For continued learning,
+            venture over to <a href="">Databases</a>,
+            <a href="">Publications</a>, and <a href="">Videos</a>.
+        </p>
+        <div style="text-align: center">
+            <h1 class="text-dark font-weight-bold">
+                Still Want To Learn More?
+            </h1>
+            <button
+                class="btn btn-primary btn-lg"
+                style="font-size: 20px; padding: 10px 20px"
+            >
+                Contact Us
+            </button>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

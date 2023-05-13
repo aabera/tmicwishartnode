@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+    .mystyle {
+        color: #373c3d;
+    }
+</style>
+<div class="m-4">
+    <div>
+        <h2 class="section-heading m-4 fw-bold text-center text_darkred">
+            Metabolomics Equipment
+        </h2>
+        <div class="text-justify text-dark">
+            <p class="text-dark mystyle" style="font-size: 20px">
+                The Wishart Node of The Metabolomics Innovation Centre has a
+                full suite of state-of-the-art equipment for targeted and
+                untargeted metabolomic analysis, including mass spectrometry,
+                NMR, UHPLC, and UV-LC.
+                <a href="">Contact us</a> for suggestions on which instrument
+                and what type of analysis is best suited for your project. Mouse
+                over (or touch) each piece of equipment for a brief description.
+                For a more detailed description for each type of equipment,<a
+                    href=""
+                >
+                    click here</a
+                >.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
